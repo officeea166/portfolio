@@ -17,7 +17,7 @@ export default defineConfig({
      Example repo URL:
      https://username.github.io/portfolio/
   ============================ */
-  base: "./",
+  base: "/portfolio/",
 
   plugins,
 
