@@ -13,12 +13,20 @@ const plugins = [
 ];
 
 export default defineConfig({
-  // 🔴 REQUIRED for GitHub Pages
+  /* ============================
+     🔴 CHANGE #1 (IMPORTANT)
+     This MUST match your repo name
+     Example repo URL:
+     https://username.github.io/portfolio/
+  ============================ */
   base: "/portfolio/",
 
   plugins,
 
-  // Project root (frontend only)
+  /* ============================
+     🔴 CHANGE #2
+     Tell Vite that frontend lives in /client
+  ============================ */
   root: path.resolve(import.meta.dirname, "client"),
 
   resolve: {
@@ -32,11 +40,18 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
 
   build: {
-    // ✅ MUST be relative to `root`
+    /* ============================
+       🔴 CHANGE #3 (CRITICAL)
+       outDir MUST be RELATIVE
+       Because root = client
+       Output becomes: client/dist
+    ============================ */
     outDir: "dist",
     emptyOutDir: true,
   },
 
+  // This section is ONLY for local dev
+  // GitHub Pages ignores it
   server: {
     port: 3000,
     strictPort: false,
