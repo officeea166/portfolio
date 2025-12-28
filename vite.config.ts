@@ -19,7 +19,7 @@ export default defineConfig({
      Example repo URL:
      https://username.github.io/portfolio/
   ============================ */
-  base: "/portfolio/",
+  base: "./",
 
   plugins,
 
@@ -48,26 +48,5 @@ export default defineConfig({
     ============================ */
     outDir: "dist",
     emptyOutDir: true,
-  },
-
-  // This section is ONLY for local dev
-  // GitHub Pages ignores it
-  server: {
-    port: 3000,
-    strictPort: false,
-    host: true,
-    allowedHosts: [
-      ".manuspre.computer",
-      ".manus.computer",
-      ".manus-asia.computer",
-      ".manuscomputer.ai",
-      ".manusvm.computer",
-      "localhost",
-      "127.0.0.1",
-    ],
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
-  },
+  }
 });
