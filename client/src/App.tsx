@@ -19,10 +19,10 @@ function AppRoutes() {
       <Route path="/home" component={Home} />
 
       {/* Explicit 404 route (used by GH Pages redirect) */}
-      <Route path="/404" component={NotFound} />
+      <Route path="/404" component={Home} />
 
       {/* Catch-all fallback */}
-      <Route component={NotFound} />
+      <Route component={Home} />
     </Switch>
   );
 }
