@@ -12,18 +12,16 @@ const plugins = [
 
 export default defineConfig({
   /* ============================
-     🔴 CHANGE #1 (IMPORTANT)
-     This MUST match your repo name
-     Example repo URL:
-     https://username.github.io/portfolio/
+     ✅ REQUIRED for GitHub Pages
+     Repo URL:
+     https://xx.github.io/portfolio/
   ============================ */
   base: "/portfolio/",
 
   plugins,
 
   /* ============================
-     🔴 CHANGE #2
-     Tell Vite that frontend lives in /client
+     Frontend root
   ============================ */
   root: path.resolve(import.meta.dirname, "client"),
 
@@ -39,12 +37,10 @@ export default defineConfig({
 
   build: {
     /* ============================
-       🔴 CHANGE #3 (CRITICAL)
-       outDir MUST be RELATIVE
-       Because root = client
-       Output becomes: client/dist
+       ⚠️ IMPORTANT for GH Pages
+       dist must be at repo root
     ============================ */
-    outDir: "dist",
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
-  }
+  },
 });
