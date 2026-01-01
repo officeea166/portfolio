@@ -15,6 +15,8 @@ function AppRoutes() {
     <Switch>
       {/* Home page */}
       <Route path="/" component={Home} />
+       
+      <Route path="/home" component={Home} />
 
       {/* Explicit 404 route (used by GH Pages redirect) */}
       <Route path="/404" component={NotFound} />
