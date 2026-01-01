@@ -1,11 +1,10 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
 
 /* ============================
    App Routes
@@ -13,15 +12,8 @@ import NotFound from "./pages/NotFound";
 function AppRoutes() {
   return (
     <Switch>
-      {/* Home page */}
       <Route path="/" component={Home} />
-       
       <Route path="/home" component={Home} />
-
-      {/* Explicit 404 route (used by GH Pages redirect) */}
-      <Route path="/404" component={Home} />
-
-      {/* Catch-all fallback */}
       <Route component={Home} />
     </Switch>
   );
@@ -33,7 +25,12 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <AppRoutes />
+
+          {/* 🔑 THIS LINE FIXES EVERYTHING */}
+          <Router base="/portfolio">
+            <AppRoutes />
+          </Router>
+
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
